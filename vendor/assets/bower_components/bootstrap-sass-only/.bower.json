@@ -1,0 +1,30 @@
+{
+  "name": "bootstrap-sass-only",
+  "version": "3.2.0",
+  "keywords": [
+    "twitter",
+    "bootstrap",
+    "twitter-bootstrap",
+    "sass"
+  ],
+  "main": [
+    "scss/bootstrap.scss"
+  ],
+  "homepage": "http://getbootstrap.com/",
+  "author": {
+    "name": "Twitter Inc."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/StevenClontz/bootstrap-sass-only.git"
+  },
+  "_release": "3.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.2.0",
+    "commit": "b1b4cf3e835d2fa3c7b8fb28e6f19910e19a7f27"
+  },
+  "_source": "git://github.com/StevenClontz/bootstrap-sass-only.git",
+  "_target": "*",
+  "_originalSource": "bootstrap-sass-only"
+}
