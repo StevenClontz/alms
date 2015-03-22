@@ -24,15 +24,9 @@ alms = angular.module('alms',[
       data:
         title: 'Bar'
     )
-    # .state('state2',
-    #   url: "/state2",
-    #   templateUrl: "state2.html"
-    # )
-    # .state('state2.list',
-    #   url: "/list"
-    #   templateUrl: "state2.list.html"
-    # )
+
 ]).directive('uiTitle', ['$rootScope', '$timeout', ($rootScope, $timeout) ->
+
   # see http://stackoverflow.com/a/23814161/1607849
   # $timeout hack required for history compatibility
   {
@@ -47,8 +41,8 @@ alms = angular.module('alms',[
         $timeout -> element.text title
 
       $rootScope.$on('$stateChangeSuccess', listener)
-
   }
+
 ])
 
 
