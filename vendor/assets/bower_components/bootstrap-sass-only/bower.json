@@ -1,18 +1,19 @@
 {
   "name": "bootstrap-sass-only",
-  "version": "3.1.1",
+  "version": "3.4.4",
   "keywords": [
         "twitter",
         "bootstrap",
         "twitter-bootstrap",
-        "sass"
+        "sass",
+        "scss"
     ],
     "main": [
-      "scss/bootstrap.scss"
+      "scss/_bootstrap.scss"
     ],
     "homepage": "http://getbootstrap.com/",
     "author": {
-        "name": "Twitter Inc."
+        "name": "Steven Clontz"
     },
     "repository": {
         "type": "git",
