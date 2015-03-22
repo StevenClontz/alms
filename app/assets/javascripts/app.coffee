@@ -15,11 +15,15 @@ alms = angular.module('alms',[
       url: "/home"
       templateUrl: "home.html"
       controller: "HomeController as _Home_"
+      data:
+        title: 'Home'
     )
-    # .state('state1.list',
-    #   url: "/list"
-    #   templateUrl: "state1.list.html"
-    # )
+    .state('foo',
+      url: "/foo"
+      templateUrl: "foo.html"
+      data:
+        title: 'Bar'
+    )
     # .state('state2',
     #   url: "/state2",
     #   templateUrl: "state2.html"
@@ -28,6 +32,23 @@ alms = angular.module('alms',[
     #   url: "/list"
     #   templateUrl: "state2.list.html"
     # )
+]).directive('uiTitle', ['$rootScope', '$timeout', ($rootScope, $timeout) ->
+  # see http://stackoverflow.com/a/23814161/1607849
+  # $timeout hack required for history compatibility
+  {
+    link: (scope, element) ->
+
+      listener = (event, toState) ->
+
+        title = 'alms'
+        if toState.data && toState.data.title
+          title = "#{toState.data.title} | alms"
+
+        $timeout -> element.text title
+
+      $rootScope.$on('$stateChangeSuccess', listener)
+
+  }
 ])
 
 
