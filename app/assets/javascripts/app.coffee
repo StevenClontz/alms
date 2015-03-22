@@ -1,12 +1,13 @@
 alms = angular.module('alms',[
+
   'templates', # angular-rails-templates
   'ui.router', # ui-router
   'alms.controllers', # alms controllers
 
 ]).config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
 
-  # For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/state1")
+  # For any unmatched url, redirect to /home
+  $urlRouterProvider.otherwise("/home")
 
   # Set up the states
   $stateProvider
@@ -31,7 +32,7 @@ alms = angular.module('alms',[
 
 
 almsControllers = angular.module('alms.controllers',[
-  ]).controller("HomeController", [
-    ->
-      @name = 'dude'
+]).controller("HomeController", [
+  ->
+    @name = 'dude'
 ])
