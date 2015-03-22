@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.0'
 
 # manage frontend assets using bower
 gem 'bower-rails'
+gem 'angular-rails-templates'
 
 # pin specific version of sass
 gem 'sass', '3.2.19'
