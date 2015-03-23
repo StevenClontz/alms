@@ -1,0 +1,1 @@
+json.(workbook, :id, :name, :description)
