@@ -11,7 +11,7 @@ angular.module('alms').config(
       # Set up the states
       $stateProvider
         .state('home',
-          url: "/home?name"
+          url: "/home"
           templateUrl: "home.html"
           controller: "HomeController as homeScope"
           data:

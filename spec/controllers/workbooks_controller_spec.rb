@@ -29,6 +29,9 @@ describe WorkbooksController do
           include('Calculus III Part 2.0')
         )
       end
+      it "should include hex_id" do
+        expect(results.first["hex_id"]).to_not be_nil
+      end
     end
 
     context "when keyword specified" do

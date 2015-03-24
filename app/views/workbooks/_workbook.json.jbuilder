@@ -1,1 +1,1 @@
-json.(workbook, :id, :name, :description)
+json.(workbook, :id, :hex_id, :name, :description)

@@ -3,11 +3,9 @@ describe "HomeController", ->
   ctrl         = null
   httpBackend  = null
 
-  setupController = (mockRequestResponses, query) ->
-    inject(($rootScope, $controller, $state, $httpBackend)->
+  setupController = (mockRequestResponses) ->
+    inject(($rootScope, $controller, $httpBackend)->
       scope       = $rootScope.$new()
-      stateParams = $state.params
-      stateParams.name = query
 
       httpBackend = $httpBackend
 
@@ -35,7 +33,8 @@ describe "HomeController", ->
     ]
   ]
 
-  describe "when no query specified", ->
+
+  describe "when visiting home page", ->
     beforeEach ->
       setupController(mockRequestResponses)
       httpBackend.flush()
@@ -45,23 +44,10 @@ describe "HomeController", ->
       scope.homeScope.queryWorkbooks('SHoRt')
       httpBackend.flush()
       expect(scope.homeScope.workbooks.length).toNgEqual(1)
-
-
-  describe 'with matching query specified', ->
-    query = 'SHoRt'
-    beforeEach ->
-      setupController(mockRequestResponses, query)
+      scope.homeScope.queryWorkbooks('klgIOUGIgiougiug')
       httpBackend.flush()
-    it 'finds appropriate number of matches', ->
-      expect(scope.homeScope.workbooks.length).toNgEqual(1)
-
-  describe 'with nonmatching query specified', ->
-    query = 'klgIOUGIgiougiug'
-    beforeEach ->
-      setupController(mockRequestResponses, query)
-      httpBackend.flush()
-    it 'finds no matches', ->
       expect(scope.homeScope.workbooks.length).toNgEqual(0)
+
 
   afterEach ->
     httpBackend.verifyNoOutstandingExpectation()
