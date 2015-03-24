@@ -28,12 +28,14 @@ gem 'sass', '3.2.19'
 
 # testing gems
 group :test, :development do
+  gem "pry"
   gem "rspec-rails", "~> 2.0"
   gem "factory_girl_rails", "~> 4.0"
   gem "capybara"
   gem "database_cleaner"
   gem "selenium-webdriver"
-  gem "pry"
+  gem "teaspoon"
+  gem "phantomjs"
 end
 
 # production gems

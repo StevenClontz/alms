@@ -14,7 +14,7 @@ alms = angular.module('alms',[
     .state('home',
       url: "/home"
       templateUrl: "home.html"
-      controller: "HomeController as homeCtrl"
+      controller: "HomeController as homeScope"
       data:
         title: 'Home'
     )
@@ -55,8 +55,10 @@ almsControllers = angular.module('alms.controllers',[
 
     class Workbook extends RailsResource
       @configure url: '/api/v1/workbooks', name: 'workbook'
-    Workbook.query().then (workbooks) =>
-      @workbooks = workbooks
-    @name = 'dude'
 
+    @workbooks = []
+    # Workbook.query().then (workbooks) =>
+    #   @workbooks = workbooks
+
+    return
 ])

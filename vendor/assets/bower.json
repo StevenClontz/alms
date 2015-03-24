@@ -2,6 +2,7 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "angular": "latest",
+    "angular-mocks": "latest",
     "angular-ui-router": "latest",
     "bootstrap-sass-only": "latest",
     "angularjs-rails-resource": "latest"
