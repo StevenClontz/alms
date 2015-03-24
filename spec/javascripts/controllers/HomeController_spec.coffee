@@ -4,9 +4,9 @@ describe "HomeController", ->
   httpBackend  = null
 
   setupController = (mockRequestResponses, query) ->
-    inject(($rootScope, $controller, $stateParams, $httpBackend)->
+    inject(($rootScope, $controller, $state, $httpBackend)->
       scope       = $rootScope.$new()
-      stateParams = $stateParams
+      stateParams = $state.params
       stateParams.name = query
 
       httpBackend = $httpBackend
@@ -41,6 +41,11 @@ describe "HomeController", ->
       httpBackend.flush()
     it 'defaults all workbooks', ->
       expect(scope.homeScope.workbooks.length).toNgEqual(3)
+    it 'is searchable', ->
+      scope.homeScope.queryWorkbooks('SHoRt')
+      httpBackend.flush()
+      expect(scope.homeScope.workbooks.length).toNgEqual(1)
+
 
   describe 'with matching query specified', ->
     query = 'SHoRt'

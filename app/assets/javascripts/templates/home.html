@@ -1,4 +1,11 @@
 <h1>Homepage</h1>
+<form ng-submit="homeScope.submitQuery(homeScope.nameQuery)">
+  <input class="form-control"
+         type="text"
+         ng-model="homeScope.nameQuery"
+         ng-change="homeScope.queryWorkbooks(homeScope.nameQuery)">
+  </input>
+</form>
 <ul>
   <li ng-repeat="workbook in homeScope.workbooks">{{workbook}}</li>
 </ul>

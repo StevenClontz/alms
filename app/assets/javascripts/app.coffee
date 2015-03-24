@@ -51,7 +51,7 @@ almsControllers = angular.module('alms.controllers',[
   'rails' #angularjs-rails-resource
 
 ]).controller("HomeController", [
-  'RailsResource', '$stateParams', (RailsResource, $stateParams) ->
+  'RailsResource', '$state', (RailsResource, $state) ->
 
     class Workbook extends RailsResource
       @configure url: '/api/v1/workbooks', name: 'workbook'
@@ -61,9 +61,14 @@ almsControllers = angular.module('alms.controllers',[
     queryWorkbooks = (nameQuery) =>
       Workbook.query(name:nameQuery).then (workbooks) =>
         @workbooks = workbooks
+    queryWorkbooks($state.params.name)
+    @queryWorkbooks = queryWorkbooks
 
-    @nameQuery = $stateParams.name
-    queryWorkbooks(@nameQuery)
+    @nameQuery = $state.params.name
+
+    submitQuery = (nameQuery) ->
+      $state.go 'home', {name: nameQuery}
+    @submitQuery = submitQuery
 
     return
 ])
