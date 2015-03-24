@@ -1,2 +1,5 @@
 <h1>Homepage</h1>
-<p>name: {{ _Home_.name }}</p>
+<p>name: {{ homeCtrl.name }}</p>
+<ul>
+  <li ng-repeat="workbook in homeCtrl.workbooks">{{workbook}}</li>
+</ul>

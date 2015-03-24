@@ -2,7 +2,7 @@ alms = angular.module('alms',[
 
   'templates', # angular-rails-templates
   'ui.router', # ui-router
-  'alms.controllers', # alms controllers
+  'alms.controllers', # alms
 
 ]).config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
 
@@ -14,7 +14,7 @@ alms = angular.module('alms',[
     .state('home',
       url: "/home"
       templateUrl: "home.html"
-      controller: "HomeController as _Home_"
+      controller: "HomeController as homeCtrl"
       data:
         title: 'Home'
     )
@@ -47,7 +47,16 @@ alms = angular.module('alms',[
 
 
 almsControllers = angular.module('alms.controllers',[
+
+  'rails' #angularjs-rails-resource
+
 ]).controller("HomeController", [
-  ->
+  'RailsResource', (RailsResource) ->
+
+    class Workbook extends RailsResource
+      @configure url: '/api/v1/workbooks', name: 'workbook'
+    Workbook.query().then (workbooks) =>
+      @workbooks = workbooks
     @name = 'dude'
+
 ])

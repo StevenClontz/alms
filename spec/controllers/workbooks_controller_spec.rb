@@ -9,7 +9,7 @@ describe WorkbooksController do
       Workbook.create!(name: 'Calculus III Part 2.0')
       Workbook.create!(name: 'Calculus III Part Tres')
 
-      xhr :get, :index, format: :json, name: name_query
+      xhr :get, :index, name: name_query
     end
 
     subject(:results) { JSON.parse(response.body) }
