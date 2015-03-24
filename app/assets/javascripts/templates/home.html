@@ -6,5 +6,12 @@
        ng-change="homeScope.queryWorkbooks(homeScope.nameQuery)">
 </input>
 <ul>
-  <li ng-repeat="workbook in homeScope.workbooks">{{workbook}}</li>
+  <li ng-if="homeScope.workbooks.length == 0">
+    No workbooks found.
+  </li>
+  <li ng-repeat="workbook in homeScope.workbooks">
+    <a ui-sref="workbooks.show({hexId:workbook.hexId})">
+      {{workbook.name}}
+    </a>
+  </li>
 </ul>

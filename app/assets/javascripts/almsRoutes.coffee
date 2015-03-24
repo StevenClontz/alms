@@ -10,12 +10,27 @@ angular.module('alms').config(
 
       # Set up the states
       $stateProvider
+
         .state('home',
           url: "/home"
           templateUrl: "home.html"
           controller: "HomeController as homeScope"
           data:
             title: 'Home'
+        )
+
+        .state('workbooks',
+          url: "/workbooks"
+          abstract: true
+          template: '<ui-view></ui-view>'
+        )
+
+        .state('workbooks.show',
+          url: "/:hexId"
+          templateUrl: "workbooks/show.html"
+          controller: "WorkbookController as workbookShowScope"
+          data:
+            title: 'Workbook'
         )
 
 ])
