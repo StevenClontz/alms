@@ -1,8 +1,5 @@
 angular.module('alms.controllers').controller("HomeController", [
-  'RailsResource', '$state', (RailsResource, $state) ->
-
-    class Workbook extends RailsResource
-      @configure url: '/api/v1/workbooks', name: 'workbook'
+  'Workbook', '$state', (Workbook, $state) ->
 
     @workbooks = []
 
