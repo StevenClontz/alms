@@ -18,12 +18,6 @@ alms = angular.module('alms',[
       data:
         title: 'Home'
     )
-    .state('foo',
-      url: "/foo"
-      templateUrl: "foo.html"
-      data:
-        title: 'Bar'
-    )
 
 ]).directive('uiTitle', ['$rootScope', '$timeout', ($rootScope, $timeout) ->
 
