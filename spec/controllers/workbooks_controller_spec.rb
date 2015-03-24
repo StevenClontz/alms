@@ -2,19 +2,20 @@ require 'spec_helper'
 
 describe WorkbooksController do
   render_views
+
+  names_from_results = lambda {|object| object["name"]}
+
   describe "index" do
+
     before do
       Workbook.create!(name: 'Calculus I')
       Workbook.create!(name: 'Calculus III Part 1')
       Workbook.create!(name: 'Calculus III Part 2.0')
       Workbook.create!(name: 'Calculus III Part Tres')
-
       xhr :get, :index, name: name_query
     end
 
     subject(:results) { JSON.parse(response.body) }
-
-    names_from_results = lambda {|object| object["name"]}
 
     context "when no keyword specified" do
       let(:name_query) { nil }
@@ -57,4 +58,33 @@ describe WorkbooksController do
     end
 
   end
+
+  describe 'show' do
+
+    subject(:result) { JSON.parse(response.body) }
+
+    context "when workbook page is visited by id" do
+      before do
+        workbook = Workbook.create!(name: 'An Awesome Course Notes Page')
+        xhr :get, :show, id: workbook.hex_id
+      end
+      it 'should 200' do
+        expect(response.status).to eq(200)
+        expect(result["name"]).to eq('An Awesome Course Notes Page')
+      end
+    end
+
+    context "when workbook page is visited by hex_id" do
+      before do
+        workbook = Workbook.create!(name: 'Some Course Notes Thing')
+        xhr :get, :show, id: workbook.id
+      end
+      it 'should 200' do
+        expect(response.status).to eq(200)
+        expect(result["name"]).to eq('Some Course Notes Thing')
+      end
+    end
+
+  end
+
 end
