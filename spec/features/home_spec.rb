@@ -4,7 +4,7 @@ feature "Hitting the home page", js: true do
 
   before do
     Workbook.create!(name: 'Calculus I')
-    Workbook.create!(name: 'Algebra III')
+    Workbook.create!(name: 'Algebra III', description: "It's a silly class.")
   end
 
   scenario "visiting the home page" do

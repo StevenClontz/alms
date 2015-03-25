@@ -28,7 +28,7 @@ angular.module('alms').config(
         .state('workbooks.show',
           url: "/:hexId"
           templateUrl: "workbooks/show.html"
-          controller: "WorkbookController as workbookShowScope"
+          controller: "WorkbookShowController as workbookShowScope"
           data:
             title: 'Workbook'
         )

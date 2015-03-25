@@ -1,1 +1,12 @@
-Description
+<h1>Workbook</h1>
+<div ng-if="!workbookShowScope.loading">
+  <h2>{{workbookShowScope.workbook.name}}</h2>
+  <section ng-if="workbookShowScope.workbook.description">
+    <h3>Description</h3>
+    <p>{{workbookShowScope.workbook.description}}</p>
+  </section>
+</div>
+<div ng-if="workbookShowScope.loading">
+  Loading..
+</div>
+<a ui-sref="home">Home</a>
