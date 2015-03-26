@@ -17,6 +17,8 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  config.include FactoryGirl::Syntax::Methods
+
   config.before(:suite) do
     DatabaseCleaner.clean_with :truncation
     DatabaseCleaner.clean_with :transaction
